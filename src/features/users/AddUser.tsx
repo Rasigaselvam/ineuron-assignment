@@ -74,7 +74,7 @@ const AddUser = () => {
           className={"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"}
         />
         {formErrors.firstName && (
-          <span className="error">{formErrors.firstName}</span>
+          <span className="text-red-700 text-opacity-100">{formErrors.firstName}</span>
         )}
       </div>
       <div className="form-row">
@@ -89,7 +89,7 @@ const AddUser = () => {
           className={"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"}
         />
         {formErrors.lastName && (
-          <span className="error">{formErrors.lastName}</span>
+          <span className="text-red-700 text-opacity-100">{formErrors.lastName}</span>
         )}
       </div>
       <div className="form-row">
@@ -104,7 +104,7 @@ const AddUser = () => {
           className={"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"}
         />
         {formErrors.phoneNumber && (
-          <span className="error">{formErrors.phoneNumber}</span>
+          <span className="text-red-700 text-opacity-100">{formErrors.phoneNumber}</span>
         )}
       </div>
       <div className="form-row mb-6" >
@@ -119,12 +119,15 @@ const AddUser = () => {
           className={"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"}
         />
         {formErrors.age && (
-          <span className="error">{formErrors.age}</span>
+          <span className="text-red-700 text-opacity-100">{formErrors.age}</span>
         )}
       </div>
       <div className="flex items-center justify-between">
       <button  type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
        Add
+      </button>
+      <button  onClick={() => navigate(-1)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+       Back
       </button>
   
     </div>    
