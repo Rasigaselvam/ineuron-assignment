@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { store } from '../../store'
 
 const initialState = {
   loading: false,
@@ -31,6 +32,7 @@ const userSlice = createSlice({
         let data = action.payload
       axios.post('https://blue-journalist-bbrpv.ineuron.app:4000/user/create', data)
   .then(response => {
+    store.dispatch(fetchUsers())
      return response.data.data
   });
     },
@@ -38,14 +40,17 @@ const userSlice = createSlice({
       let data = action.payload
       axios.delete(`https://blue-journalist-bbrpv.ineuron.app:4000/user/${data.id}`) 
   .then(response => {
+    if(response.data.message = "Deleted user"){
+    store.dispatch(fetchUsers())
+    }
    return response.data.data;
-
   });
   },
   EditUsers: (state: any, action: { payload: any }) => {
     let data = action.payload
     axios.patch(`https://blue-journalist-bbrpv.ineuron.app:4000/user/${data._id}`, data) 
 .then(response => {
+  store.dispatch(fetchUsers())
  return response.data.data;
 
 });
